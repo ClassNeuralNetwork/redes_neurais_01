@@ -24,14 +24,14 @@ O projeto contempla as etapas de preparação dos dados, padronização das vari
 
 ## Principais Resultados
 
-O modelo supervisionado treinado por meio de uma rede neural densa apresentou bom desempenho de generalização no conjunto de teste.
+O modelo supervisionado treinado por meio de uma rede neural densa apresentou os seguintes resultados no conjunto de teste.
 
 | Métrica de Avaliação | Valor Obtido | Descrição |
 | :--- | :---: | :--- |
-| **MAE** (*Mean Absolute Error*) | **2,9924** | Desvio médio absoluto em relação ao score clínico real. |
-| **RMSE** (*Root Mean Squared Error*) | **4,2429** | Penaliza erros de maior magnitude. |
-| **MSE** (*Mean Squared Error*) | **18,0019** | Erro quadrático médio entre os valores previstos e reais. |
-| **R²** (*Coeficiente de Determinação*) | **0,7180** | Aproximadamente **71,80%** da variância do `motor_UPDRS` é explicada pelo modelo. |
+| **MAE** (*Mean Absolute Error*) | **3,0319** | Desvio médio absoluto em relação ao score clínico real. |
+| **RMSE** (*Root Mean Squared Error*) | **4,2842** | Penaliza erros de maior magnitude. |
+| **MSE** (*Mean Squared Error*) | **18,3545** | Erro quadrático médio entre os valores previstos e reais. |
+| **R²** (*Coeficiente de Determinação*) | **0,7124** | Aproximadamente **71,24%** da variância do `motor_UPDRS` é explicada pelo modelo. |
 
 ---
 
@@ -61,6 +61,8 @@ Camada de Saída — 1 neurônio — Linear
 ### Detalhamento dos Parâmetros
 
 - **Total de parâmetros treináveis:** 3.905
+- **Parâmetros não treináveis:** 0
+- **Tamanho dos parâmetros:** 15,25 KB
 - **Otimizador:** Adam
 - **Taxa de aprendizagem:** 0,001
 - **Função de perda:** Erro Quadrático Médio (*MSE*)
@@ -184,6 +186,31 @@ O desempenho foi avaliado utilizando métricas adequadas para problemas de regre
 - **R²:** indica a proporção da variância da variável-alvo explicada pelo modelo.
 
 Os resultados obtidos indicam que a MLP conseguiu aprender uma relação relevante entre os atributos de entrada e o indicador `motor_UPDRS`.
+
+---
+
+## Exemplo de Predição
+
+Em uma amostra do conjunto de teste, foi obtido:
+
+- **Valor real:** 33,084
+- **Valor previsto:** 18,752071
+- **Erro absoluto:** 14,331929
+
+Uma amostra dos resultados também apresentou:
+
+| Índice | Real | Previsto | Erro |
+| :---: | ---: | ---: | ---: |
+| 0 | 33,0840 | 18,752071 | 14,331929 |
+| 1 | 7,1599 | 3,870386 | 3,289514 |
+| 2 | 11,2180 | 13,944765 | 2,726765 |
+| 3 | 12,7590 | 10,621243 | 2,137757 |
+| 4 | 25,3910 | 21,476406 | 3,914594 |
+| 5 | 18,0000 | 17,701445 | 0,298555 |
+| 6 | 11,4840 | 16,309612 | 4,825612 |
+| 7 | 25,2360 | 29,682497 | 4,446497 |
+| 8 | 17,9280 | 12,948372 | 4,979628 |
+| 9 | 28,0920 | 26,867512 | 1,224488 |
 
 ---
 
